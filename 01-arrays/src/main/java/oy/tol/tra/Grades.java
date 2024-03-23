@@ -18,6 +18,7 @@ public class Grades {
          this.grades[counter] = grades[counter];
       }
    }
+   
 
    /**
     * The method to reverse the internal Java int array.
@@ -32,7 +33,7 @@ public class Grades {
        6. Transform the algorithm to <strong>use</strong> the generic one from Algorithms.java, as instructed in the readme file.
       */
       int i = 0;
-      while (i <= grades.length/2) {
+      while (i < grades.length/2) {
          int temp = grades[i];
          grades[i] = grades[grades.length-i-1];
          grades[grades.length-i-1] = temp;
@@ -52,14 +53,18 @@ public class Grades {
        5. Fix the issue.
        6. Transform the algorithm to <strong>use</strong> the generic one from Algorithms.java as instructed in the readme file.
       */
-      int i = grades.length-1;
-      while (i > 0) {
-         if (grades[i] < grades[i-1]) {
-            int tmp = grades[i];
-            grades[i] = grades[i-1];
-            grades[i-1] = tmp;
-         }
-         i--;
+      
+      for(int i=0;i<grades.length;i++)
+      {
+           for(int j=i+1;j<grades.length;j++)
+           {
+            if(grades[j]<grades[i])
+            {
+            int temp=grades[j];
+            grades[j]=grades[i];
+            grades[i]=temp;
+            }
+           }
       }
    }
 
