@@ -112,3 +112,5 @@ public interface Dictionary<K extends Comparable<K>, V> {
    void compress() throws OutOfMemoryError;
 
 }
+
+}
