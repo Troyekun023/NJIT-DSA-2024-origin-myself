@@ -20,10 +20,25 @@ public class KeyValueBSearchTree<K extends Comparable<K>, V> implements Dictiona
 
     @Override
     public int size() {
+        // TODO: Implement this
         return count;
     }
 
-   @Override
+    /**
+     * Prints out the statistics of the tree structure usage.
+     * Here you should print out member variable information which tell something
+     * about
+     * your implementation.
+     * <p>
+     * For example, if you implement this using a hash table, update member
+     * variables of the class
+     * (int counters) in add(K) whenever a collision happen. Then print this counter
+     * value here.
+     * You will then see if you have too many collisions. It will tell you that your
+     * hash function
+     * is good or bad (too much collisions against data size).
+     */
+    @Override
     public String getStatus() {
         StringBuilder toReturn1=new StringBuilder("Tree has max depth of " + maxTreeDepth + ".\n");
         toReturn1.append("Longest collision chain in a tree node is " + TreeNode.longestCollisionChain + "\n");
@@ -37,6 +52,10 @@ public class KeyValueBSearchTree<K extends Comparable<K>, V> implements Dictiona
     }
 
     public boolean add(K key, V value) throws IllegalArgumentException, OutOfMemoryError {
+        // TODO: Implement this
+        // Remember null check.
+        // If root is null, should go there.e
+
         if(key==null||value==null)
         {
             throw new IllegalArgumentException("This is a custom NullPointerException message");
@@ -62,7 +81,7 @@ public Pair<K, V>[] toSortedArray() {
     TreeToArrayVisitor<K, V> visitor = new TreeToArrayVisitor<>(count);
     root.accept(visitor);
     Pair<K, V>[] sorted = visitor.getArray();
-    Algorithms.mergeSort(sorted);
+    Algorithms.fastSort(sorted);
     return sorted;
 }
 
@@ -74,6 +93,8 @@ public V find(K key) {
 
     @Override
     public void compress() throws OutOfMemoryError {
+        // Nothing to do here, since BST does not use extra space like array based
+        // structures.
     }
-    
+
 }
